@@ -3,8 +3,8 @@ import nltk, re, pprint
 from nltk import word_tokenize
 
 with open('input_file.txt') as f:
-    raw = f.readline().strip()
-    input = raw.split()
+    raw = f.readlines()
+    input = [l.strip().split() for l in raw]
     print(input)
 
     # http://www.nltk.org/book/ch08.html
@@ -17,5 +17,6 @@ with open('input_file.txt') as f:
         """)
 
     parser = nltk.ChartParser(calc_grammar)
-    for tree in parser.parse(input):
-        print(tree)
+    for sentence in input:
+        for tree in parser.parse(sentence):
+            print(tree)
