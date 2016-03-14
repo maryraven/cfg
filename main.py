@@ -9,11 +9,10 @@ with open('input_file.txt') as f:
 
     # http://www.nltk.org/book/ch08.html
     calc_grammar = nltk.CFG.fromstring("""
-        S -> SOP | SOP EOP
-        SOP -> N OP N
-        EOP -> OP N
+        S -> N OPP
+        OPP -> OP N | OPP OP N
         N -> 'zero' | 'one'| 'two' | 'three' | 'four' | 'five' | 'six' | 'seven' | 'eight' | 'nine'
-        OP -> 'plus' | 'times'| 'divide' | 'minus'
+        OP -> 'plus' | 'minus' | 'times'| 'divide'
         """)
 
     parser = nltk.ChartParser(calc_grammar)

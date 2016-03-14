@@ -1,2 +1,4 @@
 two times three plus four
-two times six plus nine
+two plus six times nine
+one minus two
+three divide six
